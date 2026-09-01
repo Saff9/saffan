@@ -77,6 +77,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'Q7mAqyFVwG2zeScg2UAuMLlidBEjgjwhvFngytF5_Ko',
+  },
 };
 
 export default function RootLayout({
@@ -95,6 +98,7 @@ export default function RootLayout({
     >
       <head>
         <meta name="theme-color" content="#000000" />
+        <meta name="google-site-verification" content="Q7mAqyFVwG2zeScg2UAuMLlidBEjgjwhvFngytF5_Ko" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
