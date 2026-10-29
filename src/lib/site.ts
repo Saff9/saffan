@@ -2,8 +2,17 @@
  * Site configuration — single source of truth for canonical URL and SEO strings.
  */
 
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://saffan-portfolio.vercel.app';
+const rawSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : '') ||
+  (process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : '') ||
+  'https://saffan-hazel.vercel.app';
+
+export const SITE_URL = rawSiteUrl.replace(/\/$/, '');
 
 export const SITE_NAME = 'Saffan';
 
