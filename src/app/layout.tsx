@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION } from '@/lib/site';
 import { PERSONAL_INFO } from '@/lib/content/personal';
@@ -180,6 +181,7 @@ export default function RootLayout({
             </div>
           </div>
         </div>
+        <Analytics />
       </body>
     </html>
   );
