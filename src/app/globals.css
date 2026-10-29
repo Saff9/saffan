@@ -1,0 +1,1149 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-accent: var(--accent);
+  --color-void: var(--void);
+  --font-sans: var(--font-dm-sans);
+  --font-hand: var(--font-caveat);
+  --font-mono: var(--font-mono-stack);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ============================================================
+   Design System v4 — "Notebook"
+   Dark void + cream paper sketchbook + terracotta accent.
+   Reference: jackiezhang.co.za
+   ============================================================ */
+:root {
+  --radius: 0.75rem;
+
+  /* Font fallbacks & declarations */
+  --font-dm-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-caveat: 'Caveat', cursive, sans-serif;
+  --font-mono-stack: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* The void — dark outer background */
+  --void: oklch(0.16 0.003 60);
+
+  /* shadcn surface vars (used sparingly) */
+  --background: oklch(0.16 0.003 60);
+  --foreground: oklch(0.97 0.004 75);
+  --card: oklch(0.2 0.003 60);
+  --card-foreground: oklch(0.97 0.004 75);
+  --popover: oklch(0.2 0.003 60);
+  --popover-foreground: oklch(0.97 0.004 75);
+  --primary: oklch(0.6 0.15 35);
+  --primary-foreground: oklch(0.98 0.004 75);
+  --secondary: oklch(0.24 0.003 60);
+  --secondary-foreground: oklch(0.97 0.004 75);
+  --muted: oklch(0.24 0.003 60);
+  --muted-foreground: oklch(0.65 0.004 75);
+  --accent: oklch(0.6 0.15 35);
+  --accent-foreground: oklch(0.98 0.004 75);
+  --destructive: oklch(0.55 0.19 28);
+  --border: oklch(0.97 0.004 75 / 0.12);
+  --input: oklch(0.97 0.004 75 / 0.14);
+  --ring: oklch(0.6 0.15 35 / 0.45);
+  --chart-1: oklch(0.6 0.15 35);
+  --chart-2: oklch(0.5 0.1 150);
+  --chart-3: oklch(0.55 0.09 220);
+  --chart-4: oklch(0.7 0.11 85);
+  --chart-5: oklch(0.5 0.13 300);
+  --sidebar: oklch(0.16 0.003 60);
+  --sidebar-foreground: oklch(0.97 0.004 75);
+  --sidebar-primary: oklch(0.6 0.15 35);
+  --sidebar-primary-foreground: oklch(0.98 0.004 75);
+  --sidebar-accent: oklch(0.24 0.003 60);
+  --sidebar-accent-foreground: oklch(0.97 0.004 75);
+  --sidebar-border: oklch(0.97 0.004 75 / 0.12);
+  --sidebar-ring: oklch(0.6 0.15 35 / 0.45);
+
+  /* NOTEBOOK tokens — the real palette */
+  --paper: #fbf8f0;            /* warm cream paper */
+  --paper-2: #f5f1e6;          /* slightly deeper cream */
+  --ink: #2c2c2c;              /* near-black ink for text on paper */
+  --ink-soft: #5a5550;         /* muted ink for secondary text */
+  --accent: #df5e4b;           /* terracotta red — the signature */
+  --accent-deep: #c44a38;      /* deeper terracotta for hovers */
+  --grid: rgba(180, 200, 230, 0.30); /* pale blue graph paper lines */
+
+  /* Opacity steps for ink + accent — used by borders, backgrounds, hovers */
+  --ink-05: rgba(44, 44, 44, 0.05);
+  --ink-06: rgba(44, 44, 44, 0.06);
+  --ink-08: rgba(44, 44, 44, 0.08);
+  --ink-10: rgba(44, 44, 44, 0.10);
+  --ink-12: rgba(44, 44, 44, 0.12);
+  --ink-14: rgba(44, 44, 44, 0.14);
+  --ink-18: rgba(44, 44, 44, 0.18);
+  --ink-20: rgba(44, 44, 44, 0.20);
+  --accent-04: rgba(223, 94, 75, 0.04);
+  --accent-06: rgba(223, 94, 75, 0.06);
+  --accent-08: rgba(223, 94, 75, 0.08);
+  --accent-10: rgba(223, 94, 75, 0.10);
+  --accent-12: rgba(223, 94, 75, 0.12);
+  --accent-25: rgba(223, 94, 75, 0.25);
+  --accent-28: rgba(223, 94, 75, 0.28);
+  --accent-30: rgba(223, 94, 75, 0.30);
+  --accent-40: rgba(223, 94, 75, 0.40);
+  --accent-45: rgba(223, 94, 75, 0.45);
+}
+
+.dark {
+  --background: oklch(0.12 0.003 60);
+  --foreground: oklch(0.97 0.004 75);
+  --void: #090a0d;
+  --card: #16181d;
+  --card-foreground: #f3f4f6;
+  --popover: #16181d;
+  --popover-foreground: #f3f4f6;
+  --primary: #e26a57;
+  --primary-foreground: #ffffff;
+  --secondary: #1c1f26;
+  --secondary-foreground: #f3f4f6;
+  --muted: #1c1f26;
+  --muted-foreground: #9ca3af;
+  --accent: #e26a57;
+  --accent-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: rgba(226, 106, 87, 0.45);
+
+  /* True Dark Mode Palette */
+  --paper: #13151a;            /* sleek dark slate notebook surface */
+  --paper-2: #1c1f26;          /* elevated dark card surface */
+  --ink: #f3f4f6;              /* bright clear text */
+  --ink-soft: #9ca3af;         /* muted secondary text */
+  --accent: #e26a57;           /* warm vibrant terracotta */
+  --accent-deep: #ff7d68;      /* hover glow */
+  --grid: rgba(255, 255, 255, 0.04);
+
+  /* Opacity steps for dark mode borders, backgrounds, and hovers */
+  --ink-05: rgba(255, 255, 255, 0.05);
+  --ink-06: rgba(255, 255, 255, 0.06);
+  --ink-08: rgba(255, 255, 255, 0.08);
+  --ink-10: rgba(255, 255, 255, 0.10);
+  --ink-12: rgba(255, 255, 255, 0.12);
+  --ink-14: rgba(255, 255, 255, 0.14);
+  --ink-18: rgba(255, 255, 255, 0.18);
+  --ink-20: rgba(255, 255, 255, 0.20);
+  --accent-04: rgba(226, 106, 87, 0.08);
+  --accent-06: rgba(226, 106, 87, 0.12);
+  --accent-08: rgba(226, 106, 87, 0.15);
+  --accent-10: rgba(226, 106, 87, 0.18);
+  --accent-12: rgba(226, 106, 87, 0.22);
+  --accent-25: rgba(226, 106, 87, 0.30);
+  --accent-28: rgba(226, 106, 87, 0.35);
+  --accent-30: rgba(226, 106, 87, 0.40);
+  --accent-40: rgba(226, 106, 87, 0.48);
+  --accent-45: rgba(226, 106, 87, 0.52);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    /* Anchor links (the nav's `#section` jumps) should land below the
+       sticky nav bar, not hidden behind it. 5rem ≈ the nav's ~80px height. */
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  /* Defensive — logo SVGs and any inline images should scale within their
+     containers and never blow out a flex/grid track on narrow viewports. */
+  img { max-width: 100%; height: auto; }
+  /* Defensive — .benchmark-table sets this explicitly, but any future <table>
+     should collapse cleanly without double borders. */
+  table { border-collapse: collapse; }
+  code, kbd { overflow-wrap: break-word; word-break: break-word; }
+  pre { overflow-x: auto; overflow-wrap: normal; word-break: normal; }
+  /* Crisp high-contrast selection in both light and dark mode */
+  ::selection,
+  *::selection {
+    background: var(--accent);
+    color: #ffffff;
+  }
+  /* Visible keyboard focus — terracotta outline ring. Scoped to interactive
+     elements via :where() so the rule carries zero specificity and any
+     component-level focus style can still override it cleanly. */
+  :where(button, a, input, textarea, select, [tabindex]):focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  /* Mouse clicks shouldn't paint a focus ring — only keyboard nav should.
+     The :focus-visible rule above handles keyboard; this resets the legacy
+     :focus outline for mouse users so clicks don't leave a lingering ring. */
+  :where(button, a, input, textarea, select, [tabindex]):focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* ============================================================
+   Notebook component utilities
+   ============================================================ */
+@layer components {
+  /* The cream paper card with graph-paper grid + faint paper grain */
+  .paper {
+    background-color: var(--paper);
+    background-image:
+      radial-gradient(rgba(44, 44, 44, 0.02) 1px, transparent 1px),
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 4px 4px, 24px 24px, 24px 24px;
+    background-position: 0 0, 0 0, 0 0;
+    color: var(--ink);
+  }
+  /* Folded page corner — small paper-2 triangle in the top-right with a
+     terracotta-tinted line along the fold edge. Subtle structural texture. */
+  .paper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    background:
+      linear-gradient(
+        135deg,
+        transparent calc(50% - 0.5px),
+        rgba(223, 94, 75, 0.55) calc(50% - 0.5px),
+        rgba(223, 94, 75, 0.55) calc(50% + 0.5px),
+        transparent calc(50% + 0.5px)
+      ),
+      var(--paper-2);
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+    box-shadow: -2px 3px 6px var(--ink-14);
+    z-index: 1;
+    pointer-events: none;
+  }
+  /* Inner paper highlight — a 1px light edge along the top of the card so
+     the sheet appears to sit *inside* the void rather than pasted on it.
+     Implemented via ::after because the shell sets the outer boxShadow inline;
+     this layers an inset highlight independently (pointer-events:none so it
+     never blocks clicks). */
+  .paper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .paper-soft {
+    background-color: var(--paper-2);
+    color: var(--ink);
+  }
+
+  /* Handwritten display */
+  .hand {
+    font-family: var(--font-caveat), cursive;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 0.92;
+  }
+  .sans {
+    font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+  .mono {
+    font-family: var(--font-mono-stack), ui-monospace, monospace;
+  }
+
+  /* Labels (DM Sans, small, tracked) */
+  .label {
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+  }
+  /* Eyebrow label in terracotta. Uses --accent-deep (#c44a38) instead of
+     --accent (#df5e4b): at 11px the lighter terracotta only hits 3.39:1 on
+     cream paper (fails WCAG AA's 4.5:1 for normal text). --accent-deep hits
+     4.51:1 — passes AA. The two hues are visually near-identical; only the
+     luminance shifts. */
+  .label-accent {
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--accent-deep);
+  }
+
+  /* Accent text */
+  .text-accent { color: var(--accent); }
+  .text-ink { color: var(--ink); }
+  .text-ink-soft { color: var(--ink-soft); }
+
+  /* Hairline rule on paper */
+  .rule {
+    height: 1px;
+    width: 100%;
+    background: var(--ink-14);
+  }
+  .rule-accent {
+    height: 2px;
+    width: 100%;
+    background: var(--accent);
+  }
+
+  /* Link on paper */
+  .link-ink {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: rgba(44, 44, 44, 0.3);
+    text-underline-offset: 3px;
+    transition: color 0.2s, text-decoration-color 0.2s;
+  }
+  .link-ink:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+
+  /* Buttons on paper */
+  .btn-ink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.625rem 1.25rem;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-ink:hover { background: var(--accent); }
+  .btn-ink svg { transition: transform 0.2s ease; }
+  .btn-ink:hover svg { transform: translateX(2px); }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1.5px solid var(--ink-20);
+    background: var(--paper-2);
+    color: var(--ink);
+    padding: 0.625rem 1.25rem;
+    font-size: 14px;
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-06);
+  }
+  .btn-outline svg { transition: transform 0.2s ease; }
+  .btn-outline:hover svg { transform: translateX(2px); }
+
+  /* Tertiary text button — no border, no background, just a subtle terracotta
+     wash on hover. For low-emphasis inline actions ("show more", "read on"). */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    background: transparent;
+    color: var(--ink-soft);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+  .btn-ghost:hover {
+    color: var(--accent);
+    background: var(--accent-06);
+  }
+  .btn-ghost svg { transition: transform 0.2s ease; }
+  .btn-ghost:hover svg { transform: translateX(2px); }
+
+  /* Tag chip on paper */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 6px;
+    border: 1px solid var(--ink-18);
+    background: rgba(44, 44, 44, 0.04);
+    padding: 3px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    font-family: var(--font-dm-sans), sans-serif;
+    transition: all 0.15s ease;
+  }
+  .chip:hover {
+    border-color: var(--accent);
+    color: var(--ink);
+  }
+  /* Larger chip variant for tech-stack displays. */
+  .chip-large {
+    padding: 5px 12px;
+    font-size: 0.8125rem;
+  }
+
+  /* Highlighter-pass marker — soft tinted band that wraps across lines.
+     Fades at both ends (0% accent) so it reads like a single pen sweep, and
+     uses box-decoration-break: clone so each wrapped line gets its own band. */
+  .marker {
+    background-image: linear-gradient(
+      120deg,
+      rgba(223, 94, 75, 0.0) 0%,
+      rgba(223, 94, 75, 0.22) 8%,
+      rgba(223, 94, 75, 0.22) 92%,
+      rgba(223, 94, 75, 0.0) 100%
+    );
+    background-size: 100% 100%;
+    padding: 0 4px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  /* Side filmstrip tile (in the dark void) — subtle, decorative */
+  .filmstrip-tile {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(251, 248, 240, 0.06);
+    background: transparent;
+    border-radius: 6px;
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(251, 248, 240, 0.28);
+    transition: all 0.3s ease;
+  }
+  .filmstrip-tile:hover {
+    color: var(--accent);
+    border-color: var(--accent-40);
+    transform: scale(1.08);
+    filter: brightness(1.15);
+  }
+
+  /* Section rule — terracotta-accented top border for major section starts.
+     Use in place of (or alongside) the standard hairline border-t to give a
+     page structural punctuation. */
+  .section-rule {
+    border-top: 2px solid var(--accent-40);
+  }
+
+  /* Washi-tape decoration — semi-transparent terracotta strip, slightly
+     rotated. Position it absolute with negative top/left offsets so it peeks
+     above a section title. pointer-events:none so it never blocks clicks. */
+  .tape {
+    position: absolute;
+    width: 80px;
+    height: 24px;
+    background: var(--accent-25);
+    transform: rotate(-3deg);
+    box-shadow:
+      0 1px 2px var(--ink-08),
+      inset 0 0 6px var(--accent-12);
+    pointer-events: none;
+  }
+
+  /* Doodle placeholder — for inline SVG hand-drawn arrows / underlines.
+     Agents add the SVG; this just sets the tint and a soft opacity.
+     display:inline-block + svg{display:block} so inline SVGs render
+     cleanly without descender gaps or extra line-box height. */
+  .doodle {
+    position: relative;
+    display: inline-block;
+    color: var(--accent);
+    opacity: 0.5;
+  }
+  .doodle svg { display: block; }
+
+  /* ── Typography hierarchy ─────────────────────────────────────
+     Body type polish — DM Sans reads flat at default sizing. These give
+     page agents a clear ladder: .lead → .prose → .caption. */
+  .prose {
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+    line-height: 1.7;
+    color: var(--ink);
+    letter-spacing: -0.003em;
+  }
+  .lead {
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--ink);
+    font-weight: 450;
+  }
+  .caption {
+    font-size: 0.8125rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* ── Fluid typography ──────────────────────────────────────────
+     Clamp-based scaling so text grows smoothly from mobile to desktop
+     instead of jumping at breakpoints. Apply alongside .hand/.sans —
+     these utilities only set font-size; family + line-height come from
+     the existing typography classes or Tailwind utilities. */
+  .fluid-hero { font-size: clamp(2.5rem, 8vw, 5rem); }
+  .fluid-h2   { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+  .fluid-h3   { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+  .fluid-body { font-size: clamp(0.95rem, 1.1vw, 1.1rem); }
+  .fluid-lead { font-size: clamp(1.05rem, 1.5vw, 1.25rem); }
+
+  /* ── Container helpers ─────────────────────────────────────────
+     Fluid horizontal padding so the reading column never feels cramped
+     on a 320px phone nor cavernous on a 1440px desktop. Compose with
+     Tailwind width utilities (max-w-4xl / max-w-6xl) for the cap, or
+     use as-is — the cap is baked in. */
+  .container-page {
+    width: 100%;
+    max-width: 56rem;            /* 4xl — the default reading column */
+    margin-inline: auto;
+    padding-left: clamp(1rem, 4vw, 2rem);
+    padding-right: clamp(1rem, 4vw, 2rem);
+  }
+  .container-wide {
+    width: 100%;
+    max-width: 72rem;            /* 6xl — galleries, grids, full-bleed rows */
+    margin-inline: auto;
+    padding-left: clamp(1rem, 4vw, 2rem);
+    padding-right: clamp(1rem, 4vw, 2rem);
+  }
+
+  /* ── Auto-fit grids ────────────────────────────────────────────
+     For card grids that should flow into however many columns fit,
+     with graceful single-column collapse on narrow viewports. The
+     min(100%, Npx) lower bound prevents horizontal overflow at 320px. */
+  .grid-auto-fit {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  }
+  .grid-auto-fit-sm {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  }
+
+  /* ── Section rhythm ───────────────────────────────────────────
+     Drop-in section padding + top hairline. Replaces the inline
+     `border-t px-6 py-16 sm:px-10 sm:py-20` + borderColor pattern that
+     every section in HomePage currently repeats. .section-tight is for
+     sub-sections nested inside a .section. */
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-top: 1px solid var(--ink-10);
+  }
+  .section-tight {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid var(--ink-10);
+  }
+  @media (min-width: 640px) {
+    .section {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+    }
+  }
+
+  /* ── Code block ───────────────────────────────────────────────
+     The shell for <pre>. Usage:
+       <div class="codeblock">
+         <div class="codeblock-header">
+           <div class="flex gap-1.5">
+             <span class="codeblock-dot"></span>×3
+           </div>
+           <span class="codeblock-lang">ts</span>
+         </div>
+         <pre><code>…</code></pre>
+       </div> */
+  .codeblock {
+    border-radius: 8px;
+    border: 1px solid var(--ink-14);
+    background: var(--paper-2);
+    overflow: hidden;
+  }
+  .codeblock-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--ink-10);
+    background: var(--ink-05);
+  }
+  .codeblock-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ink-20);
+  }
+  .codeblock-lang {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    font-family: var(--font-dm-sans), sans-serif;
+  }
+  .codeblock pre {
+    margin: 0;
+    padding: 0.875rem 1rem;
+    font-family: var(--font-mono-stack), ui-monospace, monospace;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  /* ── Architecture diagrams ────────────────────────────────────
+     Inline SVG architecture sketch surface for WorkDetailPage.
+     Bordered, paper-soft panel that holds an SVG plus an optional
+     title above and caption below. Usage:
+
+       <div class="diagram">
+         <div class="diagram-title">architecture</div>
+         <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+           <rect x="10"  y="10" width="120" height="48" />            ← default box
+           <rect class="accent" x="160" y="10" width="120" height="48" />  ← accent box
+           <path d="M130 34 L160 34" />                              ← primary line (ink)
+           <path class="stroke-accent" d="…" />                      ← emphasis line
+           <path class="stroke-soft"   d="…" />                      ← secondary line
+           <text x="70" y="38">client</text>
+         </svg>
+         <div class="caption diagram-caption">WAL pipeline, group commit every 4ms.</div>
+       </div> */
+  .diagram {
+    border: 1px solid var(--ink-14);
+    background-color: rgba(44, 44, 44, 0.03);
+    background-image: radial-gradient(rgba(44, 44, 44, 0.012) 1px, transparent 1px);
+    background-size: 4px 4px;
+    background-position: 0 0;
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    overflow: hidden;
+  }
+  .diagram-title {
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    /* --accent-deep (not --accent): 11px is normal-text-size under WCAG, so
+       needs 4.5:1 contrast on the paper surface. See .label-accent note. */
+    color: var(--accent-deep);
+    margin-bottom: 0.75rem;
+  }
+  .diagram svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+  }
+  /* Default strokes — primary lines use ink. fill:none so paths/lines
+     don't paint a closed shape by accident. */
+  .diagram svg line,
+  .diagram svg path,
+  .diagram svg polyline {
+    stroke: var(--ink);
+    fill: none;
+  }
+  /* SVG text — mono so labels read as field annotations, not prose. */
+  .diagram svg text {
+    font-family: var(--font-mono-stack), ui-monospace, monospace;
+    font-size: 11px;
+    fill: var(--ink);
+  }
+  /* Default boxes — cream fill + ink hairline. */
+  .diagram svg rect {
+    fill: var(--paper);
+    stroke: var(--ink);
+    stroke-width: 1.5;
+  }
+  /* Accent box — terracotta-tinted fill + accent border, for the
+     highlighted/primary node in a diagram. */
+  .diagram svg rect.accent {
+    fill: var(--accent-08);
+    stroke: var(--accent);
+    stroke-width: 1.5;
+  }
+  /* Stroke helpers — apply class to path/line/polyline for emphasis
+     (accent) or de-emphasis (ink-soft) variants. */
+  .diagram svg .stroke-accent { stroke: var(--accent); }
+  .diagram svg .stroke-soft   { stroke: var(--ink-soft); }
+  /* Caption below the diagram — pair with .caption in markup
+     (e.g. <div class="caption diagram-caption">). Adds the tight
+     top margin and centers the text under the SVG. */
+  .diagram-caption {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  /* ── Benchmark table ──────────────────────────────────────────
+     Clean editorial table for NovaDB's deep-dive benchmark numbers.
+     Header gets a terracotta underline; rows get hairline separators;
+     numeric cells (.num) get mono tabular-nums in accent for scanability.
+
+       <table class="benchmark-table">
+         <thead><tr><th>workload</th><th>throughput</th><th>p99</th></tr></thead>
+         <tbody>
+           <tr><td>ycsb-a</td><td class="num">82k ops/s</td><td class="num">4.1 ms</td></tr>
+           …
+         </tbody>
+       </table> */
+  .benchmark-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 0.875rem;
+    margin: 1rem 0;
+  }
+  .benchmark-table th {
+    text-align: left;
+    padding: 0.625rem 0.75rem;
+    border-bottom: 2px solid var(--accent);
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .benchmark-table td {
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--ink-10);
+    color: var(--ink);
+  }
+  .benchmark-table tr:hover td {
+    background: var(--accent-04);
+  }
+  .benchmark-table td.num {
+    font-family: var(--font-mono-stack), ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    /* --accent-deep (not --accent): 14px-bold is still "normal text" under
+       WCAG (bold large-text threshold is 14pt = ~18.6px), so 4.5:1 applies.
+       See .label-accent note. */
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  /* ── Deep-dive wrapper ────────────────────────────────────────
+     Terracotta left rule for NovaDB's deep-dive sections. Sets the
+     deep-dive apart from the regular architecture list while keeping
+     it inside the same paper surface. */
+  .deep-dive {
+    border-left: 3px solid var(--accent);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+  }
+
+  /* ── Doodle arrow ─────────────────────────────────────────────
+     Inline hand-drawn arrow SVG helper for mid-sentence arrows in
+     body text (e.g. "WAL → page cache → disk"). Slightly dimmer than
+     .doodle so it doesn't fight the surrounding prose. Apply directly
+     to the <svg> element or its inline wrapper. */
+  .doodle-arrow {
+    display: inline-block;
+    color: var(--accent);
+    opacity: 0.6;
+    vertical-align: middle;
+  }
+  .doodle-arrow svg { display: block; }
+
+  /* ── Pricing cards (Services page) ────────────────────────────
+     Auto-fit grid collapses to a single column at 320px (min(100%, 260px)
+     lower bound prevents horizontal overflow) and grows 2–4 columns on
+     wider viewports. The highlighted card carries a thicker terracotta
+     border plus a small mono "popular" ribbon via ::before. Compose the
+     CTA in markup as `class="btn-ink pricing-cta"` (or `btn-outline
+     pricing-cta--outline`); these modifiers only set width + centering
+     so the existing button shapes do the rest. */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .pricing-card {
+    border: 1px solid var(--ink-14);
+    background: var(--paper);
+    border-radius: 12px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .pricing-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  /* Pricing cards are <button> elements — the global :focus-visible rule
+     applies, but be explicit so the focus ring is never accidentally
+     overridden by the card's border-color transition. */
+  .pricing-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  /* Highlighted modifier — thicker accent border + "popular" ribbon.
+     position:relative so ::before (the ribbon) anchors to the card. */
+  .pricing-card--highlighted {
+    border-color: var(--accent);
+    border-width: 2px;
+    position: relative;
+  }
+  .pricing-card--highlighted::before {
+    content: "popular";
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--accent);
+    color: var(--paper);
+    font-family: var(--font-mono-stack), ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    line-height: 1;
+    z-index: 2;
+  }
+  .pricing-name {
+    font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .pricing-price {
+    font-family: var(--font-caveat), cursive;
+    font-weight: 500;
+    font-size: 3rem;
+    color: var(--accent);
+    line-height: 1;
+    margin: 0.5rem 0;
+  }
+  .pricing-tagline {
+    font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+  .pricing-blurb {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--ink);
+    margin: 0.75rem 0 1rem;
+  }
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    flex: 1;
+  }
+  .pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    font-size: 0.9rem;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink-06);
+  }
+  .pricing-features li:last-child {
+    border-bottom: none;
+  }
+  .pricing-features svg,
+  .pricing-features .check {
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  /* CTA modifiers — compose with .btn-ink / .btn-outline in markup.
+     These only set width + centering; the button base carries the
+     shape, padding, and hover states. */
+  .pricing-cta {
+    width: 100%;
+    justify-content: center;
+  }
+  .pricing-cta--outline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── FAQ accordion (Services page) ────────────────────────────
+     The answer panel animates max-height; Agent G toggles the inline
+     max-height between 0 and the measured scrollHeight. */
+  .faq-item {
+    border-bottom: 1px solid var(--ink-12);
+  }
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 1rem 0;
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+  .faq-question:hover { color: var(--accent); }
+  /* FAQ questions are <button> elements — explicit focus ring so the
+     accordion is operable from the keyboard with a visible indicator. */
+  .faq-question:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .faq-answer {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 0 1rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ── Process timeline (Services page) ─────────────────────────
+     Two-column grid: handwritten terracotta number on the left,
+     step body on the right. Hairline separator between steps. */
+  .process-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--ink-10);
+  }
+  .process-number {
+    font-family: var(--font-caveat), cursive;
+    font-weight: 500;
+    font-size: 2rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  /* ── Fluid display (Services hero) ────────────────────────────
+     One step below .fluid-hero so it reads as a section headline
+     rather than a page title. Smoothly scales from mobile to desktop. */
+  .fluid-display {
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    line-height: 1;
+  }
+}
+
+/* ============================================================
+   Responsive display helpers — conditional visibility
+   for decorative elements that only make sense at one end
+   of the viewport range. The 640px split mirrors Tailwind's
+   `sm` breakpoint so .hide-mobile + `sm:flex` etc. compose.
+   ============================================================ */
+@media (max-width: 639px) {
+  .hide-mobile { display: none !important; }
+}
+@media (min-width: 640px) {
+  .hide-desktop { display: none !important; }
+}
+
+/* ============================================================
+   Keyframes
+   ============================================================ */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+
+/* Paper card settle-in — apply via .paper-settle (the shell controls when).
+   The tiny initial rotation (-0.2deg) makes the sheet feel like it was just
+   placed down on the void. Not auto-applied to .paper; opt-in only. */
+@keyframes paper-settle {
+  from {
+    opacity: 0;
+    transform: translateY(16px) rotate(-0.2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+.paper-settle {
+  animation: paper-settle 0.7s ease-out;
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: var(--void); }
+::-webkit-scrollbar-thumb {
+  background: rgba(251, 248, 240, 0.18);
+  border-radius: 999px;
+  border: 3px solid var(--void);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Inside the paper card — thinner, ink-toned thumb like a notebook margin
+   mark. Scoped to .paper descendants (e.g. scrollable code blocks). */
+.paper ::-webkit-scrollbar { width: 8px; height: 8px; }
+.paper ::-webkit-scrollbar-track { background: transparent; }
+.paper ::-webkit-scrollbar-thumb {
+  background: var(--ink-20);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.paper ::-webkit-scrollbar-thumb:hover { background: var(--accent-45); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Explicit reset for the decorative loops — the global * rule above
+     already neutralises them (animation-duration ≈ 0), but be defensive
+     so a future .animate-marquee (or a framer-motion override on
+     .animate-float-slow) can't sneak past and trigger vestibular issues. */
+  .animate-float-slow,
+  .animate-marquee {
+    animation: none !important;
+  }
+  /* paper-settle is a one-shot entrance animation — under reduced-motion
+     it should resolve to its final state immediately, not play out. */
+  .paper-settle {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   Print styles — the dark void disappears and the paper sheet
+   becomes the whole page (black on white). Decorative elements
+   (nav, footer, doodles, tape, filmstrips) drop out so the
+   printed page reads like a clean notebook page.
+   ============================================================ */
+@media print {
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Strip the dark void wrapper — the sheet IS the page now. */
+  .bg-\[var\(--void\)\] {
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+  }
+
+  /* The paper sheet loses its graph-paper grid, terracotta frame, and
+     the folded-corner / inset-highlight pseudo-elements (they print as
+     solid blocks otherwise). Thin gray border, no terracotta, no
+     rounded corners, no shadow. !important is required to override
+     the inline border-color set by NotebookShell. */
+  .paper {
+    background: #ffffff !important;
+    border: 1px solid #ccc !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .paper::before,
+  .paper::after {
+    display: none !important;
+  }
+
+  /* Section rules → light gray hairline (the default ink-10 reads
+     too heavy on a 600dpi print). */
+  .section,
+  .section-tight {
+    border-top-color: #ddd !important;
+  }
+
+  /* Code blocks, diagrams, tables, pricing cards, and FAQ items
+     shouldn't split across pages — keep each one whole. */
+  .codeblock,
+  pre,
+  .diagram,
+  .benchmark-table,
+  .pricing-card,
+  .faq-item {
+    break-inside: avoid;
+  }
+
+  /* Decorative — hide entirely. */
+  nav,
+  footer,
+  .tape,
+  .doodle,
+  .doodle-arrow,
+  .filmstrip-tile,
+  .filmstrip-tile * {
+    display: none !important;
+  }
+
+  /* Force exact color rendering — some browsers strip backgrounds on
+     print otherwise. The remaining backgrounds (.codeblock's tint,
+     .diagram's wash) aid readability and should survive. */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

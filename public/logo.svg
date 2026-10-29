@@ -1,0 +1,20 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Saffan">
+  <!-- Hand-drawn S, terracotta, brush stroke -->
+  <path
+    d="M45 17.5 C45 11.5 37.5 7 28.5 7 C18 7 11 12.5 11 19.5 C11 25.5 17 28.5 27 30.5 C37 32.5 44 35.5 44 42.5 C44 50 36.5 56 26 56 C15 56 8.5 50 8.5 43.5"
+    stroke="#df5e4b"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <!-- Small hand-drawn underline squiggle -->
+  <path
+    d="M16 61 Q 24 58.5, 32 61 T 48 61"
+    stroke="#df5e4b"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    fill="none"
+    opacity="0.7"
+  />
+</svg>
