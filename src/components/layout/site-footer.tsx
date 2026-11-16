@@ -22,7 +22,9 @@ export function SiteFooter() {
               alt=""
               width={28}
               height={28}
-              className="h-7 w-7"
+              loading="lazy"
+              decoding="async"
+              className="h-7 w-7 aspect-square"
               aria-hidden="true"
             />
             <span className="hand text-2xl text-ink font-medium">{PERSONAL_INFO.name}</span>

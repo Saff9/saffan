@@ -8,7 +8,9 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: 'Saffan',
     description: SITE_DESCRIPTION,
     start_url: '/',
+    scope: '/',
     display: 'standalone',
+    lang: 'en',
     background_color: '#1a1a1a',
     theme_color: '#df5e4b',
     icons: [

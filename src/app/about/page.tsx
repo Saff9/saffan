@@ -15,16 +15,39 @@ import { Mail, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About Saffan | Web Developer & Computer Science Student',
   description:
-    'Background, philosophy, and daily tools of Saffan. Computer Science student and web developer building with Next.js, TypeScript, and FastAPI.',
+    'Background, engineering philosophy, and daily stack of Saffan. Computer Science student building fast web applications, scalable APIs, and autonomous AI agents.',
+  keywords: [
+    'about Saffan',
+    'Saffan developer background',
+    'CS student developer portfolio',
+    'Next.js developer profile',
+    'FastAPI engineer',
+    'freelance full stack engineer',
+  ],
   alternates: {
     canonical: `${SITE_URL}/about`,
   },
   openGraph: {
-    title: 'About | Saffan',
+    title: 'About Saffan | Web Developer & CS Student',
     description: PERSONAL_INFO.bio,
     url: `${SITE_URL}/about`,
+    type: 'profile',
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: 'About Saffan',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Saffan | Web Developer & CS Student',
+    description: PERSONAL_INFO.bio,
+    images: [`${SITE_URL}/twitter-image`],
   },
 };
 

@@ -1,52 +1,61 @@
-import { type ReactNode } from 'react';
+'use client';
 
-/**
- * Props for the reusable code block.
- *
- * `code` is the raw source string (may contain `\n` line breaks). `lang`
- * is the language label shown in the header (e.g. `'c'`, `'go'`); defaults
- * to `'text'` when omitted so the header always shows something.
- *
- * `dimComments` enables the comment-dimming style: each
- * line whose trimmed content starts with `//` is wrapped in a
- * `<span className="text-muted-foreground">` so comments read at lower
- * contrast, like a real editor. Lines that aren't comments render at the
- * default ink color.
- *
- * Server-component safe — no hooks, no client-only APIs.
- */
+import { useState, type ReactNode } from 'react';
+import { Check, Copy } from 'lucide-react';
+
 export interface CodeBlockProps {
   code: string;
   lang?: string;
   dimComments?: boolean;
 }
 
-/**
- * Reusable code block built on the `.codeblock` / `.codeblock-header` /
- * `.codeblock-dot` / `.codeblock-lang` utility classes from `globals.css`.
- * Renders the macOS-style header (three traffic-light dots + language
- * label) followed by a scrollable `<pre>` block.
- *
- * Replaces the two duplicated implementations flagged in CODE_REVIEW.md §3
- * (the plain one in `work-detail/blocks.tsx` and the comment-dimming one
- * previously in the removed PhilosophyPage). Comment dimming is the better
- * feature, so it's kept here as an opt-in via `dimComments`.
- */
 export function CodeBlock({
   code,
   lang = 'text',
   dimComments = false,
 }: CodeBlockProps): ReactNode {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback if clipboard API is restricted
+    }
+  };
+
   return (
-    <div className="codeblock">
-      <div className="codeblock-header">
+    <div className="codeblock group relative">
+      <div className="codeblock-header flex items-center justify-between">
         <div className="flex items-center gap-1.5" aria-hidden="true">
           <span className="codeblock-dot" />
           <span className="codeblock-dot" />
           <span className="codeblock-dot" />
+          <span className="codeblock-lang ml-2">{lang}</span>
         </div>
-        <span className="codeblock-lang">{lang}</span>
+
+        <button
+          type="button"
+          onClick={handleCopy}
+          aria-label={copied ? 'Code copied' : 'Copy code snippet'}
+          className="flex items-center gap-1.5 rounded px-2 py-0.5 text-xs font-mono text-ink-soft transition-colors hover:text-accent hover:bg-black/10 dark:hover:bg-white/10"
+        >
+          {copied ? (
+            <>
+              <Check className="h-3.5 w-3.5 text-emerald-500" />
+              <span className="text-emerald-500 font-medium">copied!</span>
+            </>
+          ) : (
+            <>
+              <Copy className="h-3.5 w-3.5 opacity-70 group-hover:opacity-100" />
+              <span>copy</span>
+            </>
+          )}
+        </button>
       </div>
+
       <pre className="whitespace-pre p-4 overflow-x-auto text-[13px] leading-relaxed text-ink">
         <code className="mono">
           {dimComments ? renderWithDimmedComments(code) : code}
@@ -56,13 +65,6 @@ export function CodeBlock({
   );
 }
 
-/**
- * Splits `code` on `\n` and wraps each `//`-prefixed line (after trimming
- * leading whitespace, so indented comments also dim) in a muted-foreground
- * span. Non-comment lines render unstyled so they inherit the parent
- * `text-ink`. A trailing `\n` is re-inserted between lines (except after
- * the last) so the source layout is preserved inside `whitespace-pre`.
- */
 function renderWithDimmedComments(code: string): ReactNode[] {
   const lines = code.split('\n');
   return lines.map((line, i) => {

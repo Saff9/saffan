@@ -34,7 +34,9 @@ export function CopyButton({
       ) : (
         <Copy className="h-4 w-4 shrink-0" aria-hidden="true" />
       )}
-      <span className="text-ink">{copied ? copiedLabel : label}</span>
+      <span className={copied ? 'text-[var(--accent)] font-semibold' : 'text-ink'}>
+        {copied ? copiedLabel : label}
+      </span>
     </button>
   );
 }

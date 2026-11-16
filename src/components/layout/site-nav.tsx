@@ -72,9 +72,11 @@ export function SiteNav() {
         <img
           src="/logo.svg"
           alt="Saffan logo"
-          width={30}
-          height={30}
-          className="h-7 w-7 sm:h-8 sm:w-8"
+          width={32}
+          height={32}
+          loading="eager"
+          decoding="async"
+          className="h-7 w-7 sm:h-8 sm:w-8 aspect-square"
         />
         <span className="hand text-2xl text-ink sm:text-3xl font-medium tracking-tight">
           Saffan

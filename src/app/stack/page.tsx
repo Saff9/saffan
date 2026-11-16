@@ -5,16 +5,39 @@ import { STACK_INTRO } from '@/lib/portfolio-data';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Stack',
+  title: 'Tech Stack & Engineering Tools | Saffan',
   description:
-    'Core technologies and tools used by Saffan: Next.js, React, TypeScript, FastAPI, Node.js, PostgreSQL, Redis, Docker, and AI agents.',
+    'Core technologies and tools used by Saffan: Next.js, React, TypeScript, FastAPI, Node.js, PostgreSQL, Redis, Docker, and autonomous AI agents.',
+  keywords: [
+    'Saffan tech stack',
+    'Next.js developer tools',
+    'React TypeScript stack',
+    'FastAPI Python architecture',
+    'Redis WebSocket stack',
+    'AI agent tools stack',
+  ],
   alternates: {
     canonical: `${SITE_URL}/stack`,
   },
   openGraph: {
-    title: 'Stack | Saffan',
+    title: 'Tech Stack & Engineering Tools | Saffan',
     description: STACK_INTRO.subtitle,
     url: `${SITE_URL}/stack`,
+    type: 'website',
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: 'Saffan Tech Stack',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tech Stack & Engineering Tools | Saffan',
+    description: STACK_INTRO.subtitle,
+    images: [`${SITE_URL}/twitter-image`],
   },
 };
 

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION } from '@/lib/site';
 import { PERSONAL_INFO } from '@/lib/content/personal';
@@ -8,10 +9,14 @@ import { SiteFooter } from '@/components/layout/site-footer';
 import { HashRedirect } from '@/components/shared/hash-redirect';
 
 export const viewport: Viewport = {
-  themeColor: '#df5e4b',
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#1a1a1a' },
+    { media: '(prefers-color-scheme: light)', color: '#fbf8f0' },
+  ],
   colorScheme: 'dark light',
   width: 'device-width',
   initialScale: 1,
+  maximumScale: 5,
 };
 
 export const metadata: Metadata = {
@@ -28,22 +33,29 @@ export const metadata: Metadata = {
     'freelance web developer',
     'hire web developer',
     'hire full stack engineer',
-    'Next.js developer',
-    'React developer',
+    'hire Next.js developer',
+    'freelance Next.js developer',
+    'React developer for hire',
     'TypeScript developer',
     'FastAPI developer',
     'Express developer',
     'AI agent developer',
+    'hire AI agent engineer',
     'build AI agents',
     'autonomous AI systems',
+    'LLM workflow development',
     'full stack developer',
     'portfolio',
     'web development portfolio',
     'software engineer portfolio',
     'custom web application development',
     'high performance website Next.js',
+    'Next.js 98+ Lighthouse developer',
+    'real-time WebSocket developer',
     'frontend engineer',
     'backend engineer',
+    'hire software developer India',
+    'remote full stack developer',
   ],
   authors: [{ name: PERSONAL_INFO.name, url: PERSONAL_INFO.github }],
   creator: PERSONAL_INFO.name,
@@ -132,8 +144,13 @@ const personSchema = {
     'Node.js',
     'Python',
     'AI Agent Development',
+    'Autonomous LLM Tools',
+    'Vector Search',
     'PostgreSQL',
     'Redis',
+    'Real-time WebSockets',
+    'Core Web Vitals Optimization',
+    'Server-Sent Events',
   ],
   description: PERSONAL_INFO.longBio,
   areaServed: 'Worldwide',
@@ -162,6 +179,8 @@ const videoSchema = {
     name: PERSONAL_INFO.name,
     url: SITE_URL,
   },
+  duration: 'PT30S',
+  inLanguage: 'en',
 };
 
 const professionalServiceSchema = {
@@ -211,8 +230,13 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
         <meta name="p:domain_verify" content="2e0e82d196e6aba1a6bd7a910c027e22" />
+        <meta name="google-site-verification" content="Q7mAqyFVwG2zeScg2UAuMLlidBEjgjwhvFngytF5_Ko" />
+        {process.env.NEXT_PUBLIC_BING_VERIFICATION && (
+          <meta name="msvalidate.01" content={process.env.NEXT_PUBLIC_BING_VERIFICATION} />
+        )}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="me" href={PERSONAL_INFO.github} />
         <link rel="me" href={PERSONAL_INFO.telegram} />
         <link rel="author" href={PERSONAL_INFO.github} />
@@ -261,6 +285,7 @@ export default function RootLayout({
           </div>
         </div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

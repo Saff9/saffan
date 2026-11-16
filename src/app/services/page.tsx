@@ -9,16 +9,43 @@ import { FaqAccordion } from '@/components/pages/faq-accordion';
 import { Check, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Services',
+  title: 'Web Development & AI Agent Services | Pricing & Packages',
   description:
-    'Transparent web development and AI agent packages from Saffan. Fast delivery, fixed prices in INR & USD, and direct communication.',
+    'Transparent web development and AI agent packages from Saffan. Fast delivery, fixed prices in INR & USD, 98+ Lighthouse scores, and direct engineering.',
+  keywords: [
+    'hire web developer',
+    'hire Next.js developer',
+    'freelance web developer',
+    'AI agent development services',
+    'custom web application development',
+    'hire full stack engineer',
+    'FastAPI developer for hire',
+    'website redesign services',
+    'Next.js developer India',
+    'freelance React developer',
+  ],
   alternates: {
     canonical: `${SITE_URL}/services`,
   },
   openGraph: {
-    title: 'Services | Saffan',
+    title: 'Web Development & AI Agent Services | Saffan',
     description: SERVICES_INTRO.subtitle,
     url: `${SITE_URL}/services`,
+    type: 'website',
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: 'Saffan Services & Pricing',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Web Development & AI Agent Services | Saffan',
+    description: SERVICES_INTRO.subtitle,
+    images: [`${SITE_URL}/twitter-image`],
   },
 };
 
