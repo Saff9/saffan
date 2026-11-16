@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     'Saffan software engineer',
     'freelance web developer',
     'hire web developer',
+    'hire full stack engineer',
     'Next.js developer',
     'React developer',
     'TypeScript developer',
@@ -34,10 +35,15 @@ export const metadata: Metadata = {
     'Express developer',
     'AI agent developer',
     'build AI agents',
+    'autonomous AI systems',
     'full stack developer',
     'portfolio',
     'web development portfolio',
     'software engineer portfolio',
+    'custom web application development',
+    'high performance website Next.js',
+    'frontend engineer',
+    'backend engineer',
   ],
   authors: [{ name: PERSONAL_INFO.name, url: PERSONAL_INFO.github }],
   creator: PERSONAL_INFO.name,
@@ -87,9 +93,16 @@ export const metadata: Metadata = {
     google:
       process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION ||
       'Q7mAqyFVwG2zeScg2UAuMLlidBEjgjwhvFngytF5_Ko',
-    ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
-      ? { other: { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION } }
-      : {}),
+    other: {
+      'p:domain_verify': '2e0e82d196e6aba1a6bd7a910c027e22',
+      ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
+        ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION }
+        : {}),
+    },
+  },
+  other: {
+    'pinterest-rich-pin': 'true',
+    'p:domain_verify': '2e0e82d196e6aba1a6bd7a910c027e22',
   },
 };
 
@@ -134,6 +147,61 @@ const websiteSchema = {
   author: { '@type': 'Person', name: PERSONAL_INFO.name },
 };
 
+const videoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: `${PERSONAL_INFO.name} — Web Development & AI Agents Portfolio Reel`,
+  description:
+    'Showcase reel of modern web applications, scalable backend systems, and autonomous AI workflows engineered by Saffan.',
+  thumbnailUrl: [`${SITE_URL}/opengraph-image`, `${SITE_URL}/twitter-image`],
+  uploadDate: '2026-01-01T00:00:00Z',
+  contentUrl: `${SITE_URL}/my-site-video.mp4`,
+  embedUrl: SITE_URL,
+  publisher: {
+    '@type': 'Person',
+    name: PERSONAL_INFO.name,
+    url: SITE_URL,
+  },
+};
+
+const professionalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: `${PERSONAL_INFO.name} | Web Development & AI Engineering Services`,
+  url: SITE_URL,
+  image: `${SITE_URL}/opengraph-image`,
+  priceRange: '$$',
+  description: SITE_DESCRIPTION,
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'Worldwide · Remote',
+  },
+  provider: {
+    '@type': 'Person',
+    name: PERSONAL_INFO.name,
+  },
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Full-Stack Web Application Development',
+      description:
+        'Custom web apps built with Next.js, React, TypeScript, Tailwind CSS, and scalable APIs.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'AI Agent & Tool Integration',
+      description:
+        'End-to-end autonomous agentic systems, vector retrieval, and custom LLM workflows.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Backend API Engineering & Optimization',
+      description:
+        'High-throughput APIs built with FastAPI, Express, PostgreSQL, and Redis caching.',
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -142,6 +210,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
+        <meta name="p:domain_verify" content="2e0e82d196e6aba1a6bd7a910c027e22" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="me" href={PERSONAL_INFO.github} />
         <link rel="me" href={PERSONAL_INFO.telegram} />
         <link rel="author" href={PERSONAL_INFO.github} />
@@ -157,6 +228,14 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
         />
       </head>
       <body className="antialiased">

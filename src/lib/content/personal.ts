@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   title: 'Web Developer & CS Student',
   handle: '@saffan',
   location: 'Available Worldwide · Remote',
-  status: '',
+  status: 'Full-Stack Developer · CS Student',
   email: 'saffanakbar942@gmail.com',
   github: 'https://github.com/Saff9',
   githubHandle: 'Saff9',

@@ -4,6 +4,7 @@ import { Reveal } from '@/components/reveal';
 import { PERSONAL_INFO, PROJECTS } from '@/lib/portfolio-data';
 import { SITE_URL, SITE_NAME } from '@/lib/site';
 import { CopyButton } from '@/components/shared/copy-button';
+import { VideoShowcase } from '@/components/home/video-showcase';
 import { ArrowRight, ArrowDownRight, Github, Send } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -12,6 +13,16 @@ export const metadata: Metadata = {
   },
   description:
     'Web developer and Computer Science student building fast Next.js websites, scalable APIs, and autonomous AI agent workflows.',
+  keywords: [
+    'Saffan',
+    'web developer',
+    'freelance web developer',
+    'Next.js developer',
+    'React engineer',
+    'AI agent developer',
+    'full stack developer portfolio',
+    'hire web developer',
+  ],
   alternates: {
     canonical: SITE_URL,
   },
@@ -110,6 +121,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Showreel (Video Showcase) ── */}
+      <section className="section px-6 sm:px-10" aria-label="Showreel">
+        <Reveal>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+            <div className="relative">
+              <span
+                className="tape hidden sm:block"
+                style={{ top: '-14px', left: '12px' }}
+                aria-hidden="true"
+              />
+              <p className="label-accent">showreel</p>
+              <h2 className="hand mt-2 text-4xl text-ink sm:text-5xl font-medium">
+                selected work in motion.
+              </h2>
+            </div>
+            <p className="sans text-sm text-ink-soft max-w-sm sm:text-right">
+              A quick look at interactive web applications, high-frequency telemetry, and autonomous AI agents.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <VideoShowcase />
+        </Reveal>
+      </section>
+
       {/* ── Principles ───────────────────────────────────── */}
       <section className="section px-6 sm:px-10">
         <Reveal>
@@ -172,9 +209,19 @@ export default function HomePage() {
                   </h3>
                   <p className="sans mt-1 text-sm text-ink-soft line-clamp-2">{p.tagline}</p>
                 </div>
-                <p className="col-span-12 sans text-sm text-ink-soft sm:col-span-4 sm:col-start-7">
-                  {p.category}
-                </p>
+                <div className="col-span-12 sans text-sm text-ink-soft sm:col-span-4 sm:col-start-7 flex flex-col gap-2">
+                  <span className="font-medium text-ink/80">{p.category}</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {p.techStack.slice(0, 3).map((tech) => (
+                      <span
+                        key={tech}
+                        className="inline-flex items-center rounded-md border border-[var(--ink-10)] bg-[var(--paper)] px-2 py-0.5 text-[11px] font-mono text-ink-soft transition-colors group-hover:border-[var(--accent)]/40 group-hover:text-ink"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
                 <span className="col-span-6 sans text-sm text-ink-soft sm:col-span-1">
                   {p.year}
                 </span>
