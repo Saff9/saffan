@@ -119,7 +119,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         shipped: ['APIForge', 'StreamBoard'],
       },
       {
-        name: 'Vercel & Cloud Deployments',
+        name: 'Cloud Deployments & CI/CD',
         level: 'Advanced',
         years: '2 yrs',
         note: 'Edge network deployment, custom domain DNS, preview environments, and continuous delivery.',

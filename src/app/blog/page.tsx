@@ -6,26 +6,24 @@ import { BLOG_POSTS } from '@/lib/portfolio-data';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Engineering Blog | Next.js, Real-time APIs & AI Agents',
+  title: {
+    absolute: 'Saffan Blog — Engineering Notes',
+  },
   description:
-    'Deep dives on Next.js Server Components, Server-Sent Events vs WebSockets, FastAPI vs Express, and Web Vitals performance optimization by Saffan.',
+    'Saffan Blog: notes on Next.js, real-time APIs, FastAPI vs Express, and performance — written from production work by Saffan.',
   keywords: [
-    'web engineering blog',
+    'Saffan blog',
+    'Saffan engineering',
     'Next.js tutorials',
-    'Server-Sent Events vs WebSocket',
-    'FastAPI vs Express comparison',
-    'stop useEffect data fetching',
-    'Next.js 98+ Lighthouse',
-    'real-time web dev',
+    'web engineering blog',
     'AI agent architectures',
-    'Saffan engineering blog',
   ],
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },
   openGraph: {
-    title: 'Engineering Blog | Saffan',
-    description: 'Technical notes on web engineering, real-time protocols, and AI agent architectures.',
+    title: 'Saffan Blog — Engineering Notes',
+    description: 'Technical notes on web engineering and AI systems by Saffan.',
     url: `${SITE_URL}/blog`,
     type: 'website',
     images: [
@@ -33,14 +31,14 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: 'Saffan Engineering Blog',
+        alt: 'Saffan Blog — Engineering Notes',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Engineering Blog | Saffan',
-    description: 'Technical notes on web engineering, real-time protocols, and AI agent architectures.',
+    title: 'Saffan Blog — Engineering Notes',
+    description: 'Technical notes on web engineering and AI systems by Saffan.',
     images: [`${SITE_URL}/twitter-image`],
   },
 };
@@ -66,7 +64,7 @@ export default function BlogIndexPage() {
       <div>
         <PageHeader
           eyebrow="Blog"
-          title="Engineering Notes"
+          title="Saffan Blog"
           subtitle="Reflections on web architecture, real-time event streaming, and building high-performance software. Written from first-hand production experience."
         />
 

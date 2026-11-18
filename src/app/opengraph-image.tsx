@@ -1,12 +1,11 @@
 import { ImageResponse } from 'next/og';
 import { PERSONAL_INFO } from '@/lib/portfolio-data';
 
-export const alt = `${PERSONAL_INFO.name} | Web Developer & CS Student`;
+export const alt = 'Saffan — Web Developer, Work & Services';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-// Open Graph share image — notebook aesthetic: cream paper card with
-// terracotta border on dark void, handwritten name + tagline.
+// Open Graph share image — brand-first so search/social cards say Saffan, not host noise.
 export default function OGImage() {
   return new ImageResponse(
     (
@@ -38,7 +37,7 @@ export default function OGImage() {
               display: 'flex',
               alignItems: 'center',
               gap: 12,
-              marginBottom: 24,
+              marginBottom: 20,
             }}
           >
             <div
@@ -59,33 +58,43 @@ export default function OGImage() {
                 display: 'flex',
               }}
             >
-              {PERSONAL_INFO.status}
+              Web Developer · Work · Services
             </div>
           </div>
           <div
             style={{
-              fontSize: 84,
+              fontSize: 96,
               fontWeight: 700,
               color: '#2c2c2c',
               fontFamily: 'Georgia, serif',
               fontStyle: 'italic',
-              lineHeight: 1.05,
+              lineHeight: 1,
               display: 'flex',
-              flexDirection: 'column',
             }}
           >
-            <span style={{ display: 'flex' }}>i build websites,</span>
-            <span style={{ display: 'flex', color: '#df5e4b' }}>software & AI agents.</span>
+            {PERSONAL_INFO.name}
           </div>
           <div
             style={{
-              fontSize: 28,
+              fontSize: 32,
+              color: '#df5e4b',
+              marginTop: 16,
+              fontFamily: 'Georgia, serif',
+              fontStyle: 'italic',
+              display: 'flex',
+            }}
+          >
+            websites, software & AI agents.
+          </div>
+          <div
+            style={{
+              fontSize: 22,
               color: '#5a5550',
               marginTop: 28,
               display: 'flex',
             }}
           >
-            {PERSONAL_INFO.name} | {PERSONAL_INFO.title}
+            Saffan Work · Saffan Services · Portfolio
           </div>
         </div>
       </div>

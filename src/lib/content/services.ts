@@ -6,9 +6,9 @@ import type { ServicePackage } from './types';
 
 export const SERVICES_INTRO = {
   eyebrow: 'Services & Pricing',
-  title: 'Work With Me',
+  title: 'Saffan Services',
   subtitle:
-    'From responsive, high-converting landing pages to full-stack web applications and custom AI workflows. Transparent deliverables, fixed pricing, and direct communication.',
+    'Saffan Services covers landing pages, full websites, and custom AI apps. Transparent deliverables, fixed pricing, and direct engineering — no agency middlemen.',
 };
 
 export const SERVICE_PACKAGES: ServicePackage[] = [
@@ -22,7 +22,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       '1 custom-designed responsive page',
       'Mobile, tablet, and desktop perfection',
       '95+ Lighthouse speed and SEO score',
-      'Deployment to Vercel with custom domain',
+      'Production deploy with custom domain',
       'Contact form integration',
       '2 rounds of revisions included',
     ],

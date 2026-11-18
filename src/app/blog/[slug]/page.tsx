@@ -34,9 +34,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = `${SITE_URL}/blog/${post.slug}`;
 
   return {
-    title: `${post.title} | Saffan's Engineering Notes`,
-    description: post.dek,
-    keywords: [...post.tags, 'software engineering', 'web development', 'Next.js architecture'],
+    title: { absolute: `${post.title} — Saffan Blog` },
+    description: `${post.dek} — from Saffan Blog.`,
+    keywords: ['Saffan blog', 'Saffan', ...post.tags, 'web development'],
     alternates: {
       canonical: url,
     },

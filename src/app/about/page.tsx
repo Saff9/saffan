@@ -15,22 +15,23 @@ import { Mail, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About Saffan | Web Developer & Computer Science Student',
+  title: {
+    absolute: 'About Saffan — Web Developer & CS Student',
+  },
   description:
-    'Background, engineering philosophy, and daily stack of Saffan. Computer Science student building fast web applications, scalable APIs, and autonomous AI agents.',
+    'About Saffan: Computer Science student and full-stack web developer building fast apps, APIs, and AI tools. Background, philosophy, and stack.',
   keywords: [
-    'about Saffan',
-    'Saffan developer background',
-    'CS student developer portfolio',
-    'Next.js developer profile',
-    'FastAPI engineer',
-    'freelance full stack engineer',
+    'About Saffan',
+    'Saffan developer',
+    'Saffan web developer',
+    'Saffan CS student',
+    'Saffan portfolio',
   ],
   alternates: {
     canonical: `${SITE_URL}/about`,
   },
   openGraph: {
-    title: 'About Saffan | Web Developer & CS Student',
+    title: 'About Saffan — Web Developer & CS Student',
     description: PERSONAL_INFO.bio,
     url: `${SITE_URL}/about`,
     type: 'profile',
@@ -39,13 +40,13 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: 'About Saffan',
+        alt: 'About Saffan — Web Developer & CS Student',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Saffan | Web Developer & CS Student',
+    title: 'About Saffan — Web Developer & CS Student',
     description: PERSONAL_INFO.bio,
     images: [`${SITE_URL}/twitter-image`],
   },
@@ -103,7 +104,7 @@ export default function AboutPage() {
       <div>
         <PageHeader
           eyebrow="About"
-          title="About Me"
+          title="About Saffan"
           subtitle={PERSONAL_INFO.bio}
         />
 

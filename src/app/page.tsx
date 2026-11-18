@@ -9,30 +9,29 @@ import { ArrowRight, ArrowDownRight, Github, Send } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: {
-    absolute: `${PERSONAL_INFO.name} | Web Developer & CS Student`,
+    absolute: 'Saffan — Web Developer, Work & Services',
   },
   description:
-    'Web developer and Computer Science student building fast Next.js websites, scalable APIs, and autonomous AI agent workflows.',
+    'Saffan builds fast Next.js websites, full-stack software, and AI agents. Browse Saffan Work and hire Saffan Services for landing pages, websites, and custom apps.',
   keywords: [
     'Saffan',
-    'web developer',
-    'freelance web developer',
+    'Saffan work',
+    'Saffan services',
+    'Saffan web developer',
+    'hire Saffan',
     'Next.js developer',
-    'React engineer',
-    'AI agent developer',
     'full stack developer portfolio',
-    'hire web developer',
   ],
   alternates: {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: `${PERSONAL_INFO.name} | Web Developer & CS Student`,
+    title: 'Saffan — Web Developer, Work & Services',
     description:
-      'Web developer and Computer Science student building fast Next.js websites, scalable APIs, and autonomous AI agent workflows.',
+      'Saffan builds fast Next.js websites, full-stack software, and AI agents. Explore Saffan Work and Saffan Services.',
     url: SITE_URL,
     siteName: SITE_NAME,
-    type: 'profile',
+    type: 'website',
   },
 };
 

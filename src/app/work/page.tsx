@@ -5,25 +5,25 @@ import { WORK_INTRO } from '@/lib/portfolio-data';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Work & Projects | Full-Stack Systems & AI Workflows',
+  title: {
+    absolute: 'Saffan Work — Projects & Case Studies',
+  },
   description:
-    'Explore production web applications, telemetry streaming engines, high-throughput APIs, and autonomous AI agent architectures engineered by Saffan.',
+    'Saffan Work: production web apps, real-time dashboards, high-throughput APIs, and AI agent systems. Case studies from Saffan’s portfolio.',
   keywords: [
-    'web development portfolio',
-    'software engineer portfolio',
-    'Next.js case studies',
-    'React production apps',
-    'FastAPI project examples',
-    'AI agent workflows',
-    'telemetry streaming architecture',
-    'full stack developer work',
+    'Saffan work',
     'Saffan projects',
+    'Saffan portfolio',
+    'web development portfolio',
+    'Next.js case studies',
+    'AI agent workflows',
+    'full stack developer work',
   ],
   alternates: {
     canonical: `${SITE_URL}/work`,
   },
   openGraph: {
-    title: 'Work & Projects | Saffan',
+    title: 'Saffan Work — Projects & Case Studies',
     description: WORK_INTRO.subtitle,
     url: `${SITE_URL}/work`,
     type: 'website',
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: 'Saffan Work & Projects Showcase',
+        alt: 'Saffan Work — Projects & Case Studies',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Work & Projects | Saffan',
+    title: 'Saffan Work — Projects & Case Studies',
     description: WORK_INTRO.subtitle,
     images: [`${SITE_URL}/twitter-image`],
   },

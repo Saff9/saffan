@@ -29,13 +29,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = `${project.title} | ${project.tagline}`;
-  const description = `${project.problemStatement} Built with ${project.techStack.join(', ')}.`;
+  const stack = project.techStack.filter((t) => t.toLowerCase() !== 'vercel');
+  const title = `${project.title} — Saffan Work`;
+  const description = `${project.tagline} Part of Saffan Work. Built with ${stack.join(', ')}.`;
   const url = `${SITE_URL}/work/${project.slug}`;
 
   return {
-    title: project.title,
+    title: { absolute: title },
     description,
+    keywords: ['Saffan work', project.title, 'Saffan', ...stack],
     alternates: {
       canonical: url,
     },
@@ -50,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: `${SITE_URL}/opengraph-image`,
           width: 1200,
           height: 630,
-          alt: project.title,
+          alt: title,
         },
       ],
     },

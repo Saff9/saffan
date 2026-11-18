@@ -9,26 +9,25 @@ import { FaqAccordion } from '@/components/pages/faq-accordion';
 import { Check, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Web Development & AI Agent Services | Pricing & Packages',
+  title: {
+    absolute: 'Saffan Services — Web Development & AI Packages',
+  },
   description:
-    'Transparent web development and AI agent packages from Saffan. Fast delivery, fixed prices in INR & USD, 98+ Lighthouse scores, and direct engineering.',
+    'Saffan Services: landing pages, complete websites, and custom AI apps with fixed prices in INR & USD. Hire Saffan for fast delivery and direct engineering.',
   keywords: [
-    'hire web developer',
+    'Saffan services',
+    'hire Saffan',
+    'Saffan web developer',
     'hire Next.js developer',
     'freelance web developer',
     'AI agent development services',
     'custom web application development',
-    'hire full stack engineer',
-    'FastAPI developer for hire',
-    'website redesign services',
-    'Next.js developer India',
-    'freelance React developer',
   ],
   alternates: {
     canonical: `${SITE_URL}/services`,
   },
   openGraph: {
-    title: 'Web Development & AI Agent Services | Saffan',
+    title: 'Saffan Services — Web Development & AI Packages',
     description: SERVICES_INTRO.subtitle,
     url: `${SITE_URL}/services`,
     type: 'website',
@@ -37,13 +36,13 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: 'Saffan Services & Pricing',
+        alt: 'Saffan Services — Pricing & Packages',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Web Development & AI Agent Services | Saffan',
+    title: 'Saffan Services — Web Development & AI Packages',
     description: SERVICES_INTRO.subtitle,
     images: [`${SITE_URL}/twitter-image`],
   },
@@ -114,7 +113,7 @@ export default function ServicesPage() {
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'Saffan | Web Development & AI Engineering',
+    name: 'Saffan Services',
     description: SERVICES_INTRO.subtitle,
     provider: { '@type': 'Person', name: PERSONAL_INFO.name, url: SITE_URL },
     areaServed: 'Worldwide',

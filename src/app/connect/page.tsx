@@ -9,23 +9,24 @@ import { SITE_URL } from '@/lib/site';
 import { Github, Send, MessageCircle, ArrowRight, Mail } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Contact Saffan | Hire Full-Stack & AI Agent Developer',
+  title: {
+    absolute: 'Contact Saffan — Hire Web Developer',
+  },
   description:
-    'Send a direct project inquiry or message to Saffan for freelance web development, full-stack software engineering, or custom AI agent tools.',
+    'Contact Saffan to hire for web development, full-stack apps, or custom AI tools. Project inquiries via form, email, or Telegram.',
   keywords: [
-    'contact Saffan',
-    'hire web developer',
-    'freelance software engineer',
-    'hire Next.js developer',
-    'AI agent consultant',
+    'Contact Saffan',
+    'hire Saffan',
     'work with Saffan',
+    'hire web developer',
+    'hire Next.js developer',
   ],
   alternates: {
     canonical: `${SITE_URL}/connect`,
   },
   openGraph: {
-    title: 'Contact Saffan | Hire Full-Stack & AI Agent Developer',
-    description: 'Send a project inquiry or connect directly with Saffan.',
+    title: 'Contact Saffan — Hire Web Developer',
+    description: 'Contact Saffan for freelance web development and AI projects.',
     url: `${SITE_URL}/connect`,
     type: 'website',
     images: [
@@ -33,14 +34,14 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: 'Contact Saffan',
+        alt: 'Contact Saffan — Hire Web Developer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Saffan | Hire Full-Stack & AI Agent Developer',
-    description: 'Send a project inquiry or connect directly with Saffan.',
+    title: 'Contact Saffan — Hire Web Developer',
+    description: 'Contact Saffan for freelance web development and AI projects.',
     images: [`${SITE_URL}/twitter-image`],
   },
 };

@@ -4,7 +4,7 @@ import { SITE_DESCRIPTION } from '@/lib/site';
 // Web app manifest — served at /manifest.webmanifest
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Saffan | Web Developer & CS Student',
+    name: 'Saffan — Web Developer, Work & Services',
     short_name: 'Saffan',
     description: SITE_DESCRIPTION,
     start_url: '/',

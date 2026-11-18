@@ -88,7 +88,7 @@ export const PROJECTS: Project[] = [
     id: 'devport',
     title: 'DevPort',
     slug: 'devport',
-    tagline: 'Minimalist developer portfolio builder featuring instant live-preview editing, zero-config themes, and one-click Vercel deployment.',
+    tagline: 'Minimalist developer portfolio builder featuring instant live-preview editing, zero-config themes, and one-click cloud deployment.',
     tone: 'results',
     category: 'Full-Stack & Platforms',
     year: '2023',

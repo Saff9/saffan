@@ -33,6 +33,6 @@ export const PERSONAL_INFO = {
     { category: 'Frontend', items: ['Next.js', 'React', 'Tailwind', 'TypeScript'] },
     { category: 'Backend', items: ['FastAPI', 'Express', 'Node.js', 'Python'] },
     { category: 'AI & Data', items: ['AI Agents', 'LLMs', 'Vector Search', 'Redis'] },
-    { category: 'DevOps & Tooling', items: ['Git', 'Docker', 'PostgreSQL', 'Vercel'] },
+    { category: 'DevOps & Tooling', items: ['Git', 'Docker', 'PostgreSQL', 'CI/CD'] },
   ],
 } as const;

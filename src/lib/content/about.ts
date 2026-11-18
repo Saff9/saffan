@@ -53,12 +53,14 @@ export const ENERGY_SOURCES: SoulItem[] = [
 
 export const WORK_INTRO = {
   eyebrow: 'Portfolio',
-  title: 'Selected Work',
-  subtitle: 'Full-stack applications, real-time dashboards, and autonomous agent systems built from first principles.',
+  title: 'Saffan Work',
+  subtitle:
+    'Saffan Work — full-stack applications, real-time dashboards, and autonomous agent systems built from first principles.',
 };
 
 export const STACK_INTRO = {
   eyebrow: 'Technologies',
-  title: 'Tech Stack & Tools',
-  subtitle: 'The languages, frameworks, and infrastructure I rely on daily to ship reliable, high-performance software.',
+  title: 'Saffan Stack',
+  subtitle:
+    'Languages, frameworks, and tools Saffan uses daily to ship reliable, high-performance software.',
 };

@@ -16,7 +16,9 @@ export const SITE_URL = rawSiteUrl.replace(/\/$/, '');
 
 export const SITE_NAME = 'Saffan';
 
-export const SITE_TITLE = 'Saffan | Web Developer & CS Student';
+/** Primary SERP title — keep under ~60 chars, brand first. */
+export const SITE_TITLE = 'Saffan — Web Developer, Work & Services';
 
+/** Primary SERP description — brand + what you offer, no host/platform noise. */
 export const SITE_DESCRIPTION =
-  'Computer Science student and full-stack web developer building responsive web applications, fast APIs, and custom AI tools with Next.js, TypeScript, FastAPI, and Express.';
+  'Saffan is a web developer and CS student. Explore Saffan Work (projects & case studies) and Saffan Services — fast Next.js sites, full-stack apps, and custom AI tools.';

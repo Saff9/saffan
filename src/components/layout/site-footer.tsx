@@ -30,7 +30,7 @@ export function SiteFooter() {
             <span className="hand text-2xl text-ink font-medium">{PERSONAL_INFO.name}</span>
           </div>
           <p className="sans text-sm text-ink-soft max-w-sm leading-relaxed mt-1">
-            Computer Science student and full-stack web developer. Building clean web apps, resilient backend APIs, and autonomous AI tools.
+            Saffan — web developer &amp; CS student. Saffan Work covers projects and case studies; Saffan Services covers websites and AI apps.
           </p>
           <div className="flex items-center gap-3 mt-2">
             <a
